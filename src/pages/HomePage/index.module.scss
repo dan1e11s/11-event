@@ -1,0 +1,12 @@
+.parent {
+  height: 100vh;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-snap-type: y mandatory;
+}
+
+.parent::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

@@ -1,0 +1,54 @@
+.table {
+  letter-spacing: 0;
+  font-size: 12px;
+  padding-top: 10%;
+  padding-bottom: 40px;
+
+  & tbody {
+    & th {
+      padding-bottom: 10px;
+    }
+
+    & th,
+    td {
+      cursor: pointer;
+      text-align: left;
+      padding-right: 50px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.languages {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 50px 0;
+
+  & p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.langList {
+  display: flex;
+  gap: 10px;
+
+  & li {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & li:last-child {
+    color: #686868;
+    cursor: text;
+    text-decoration: none;
+  }
+}

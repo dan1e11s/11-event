@@ -1,0 +1,11 @@
+.burger {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.burger svg {
+  position: fixed;
+  top: 41px;
+  left: 30px;
+  z-index: 1000;
+}

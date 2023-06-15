@@ -1,0 +1,50 @@
+.cartItem {
+  & img {
+    width: 325px;
+    height: 420px;
+  }
+}
+
+.cartContent {
+  border: 1px solid #000;
+}
+
+.cartDescr {
+  font-size: 12px;
+  letter-spacing: normal;
+  padding: 10px 0 25px;
+}
+
+.cartName {
+  display: flex;
+  justify-content: space-between;
+
+  & p {
+    cursor: pointer;
+  }
+
+  & span {
+    cursor: pointer;
+  }
+}
+
+.cartPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartBtns {
+  display: flex;
+  justify-content: space-between;
+
+  & p {
+    cursor: pointer;
+  }
+}
+
+.cartCount {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+}

@@ -1,0 +1,38 @@
+.footer {
+  color: #000;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+}
+
+.title {
+  font-weight: 300;
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  gap: 30px;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.footer__footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}

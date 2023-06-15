@@ -1,0 +1,41 @@
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 7rem 30px 15px;
+  color: #000;
+  margin-bottom: 35px;
+  position: fixed;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+
+  & li {
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+  }
+}
+
+.liActive {
+  font-weight: 700;
+  border-bottom: 1px solid #000;
+}
+
+.searchInp {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  border: none;
+  border-bottom: 1px solid #000;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  &:focus {
+    outline: none;
+  }
+}

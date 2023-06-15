@@ -1,0 +1,18 @@
+.container {
+  color: #000;
+  padding-top: 17rem;
+
+  & p {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

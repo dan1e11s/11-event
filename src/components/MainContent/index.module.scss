@@ -1,0 +1,64 @@
+.bg1 {
+  height: 100vh;
+  background: url('https://source.unsplash.com/random?style/featured/1920x1080');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg2 {
+  height: 100vh;
+  background: url('https://source.unsplash.com/random?style/featured/1921x1080');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.bg3 {
+  height: 100vh;
+  background: url('https://source.unsplash.com/random?style/featured/1922x1080');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg4 {
+  height: 100vh;
+  background: url('https://source.unsplash.com/random?style/featured/1920x1082');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg5 {
+  height: 100vh;
+  background: url('https://source.unsplash.com/featured/1920x1081');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.child {
+  position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  p {
+    position: absolute;
+    bottom: 125px;
+    right: 65px;
+    letter-spacing: 3px;
+  }
+}
+
+.animatedText {
+  animation: show 1s forwards;
+}
+
+@keyframes show {
+  from {
+    transform: translateX(170%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
