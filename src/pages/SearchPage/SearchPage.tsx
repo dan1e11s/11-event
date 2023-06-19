@@ -8,7 +8,6 @@ import CartBar from '../../components/CartBar/CartBar';
 import { useAppDispatch } from '../../store';
 import {
   setCartBar,
-  setIsCartPage,
   setIsSearchPage,
   setUserName,
 } from '../../features/configs/configs-slice';

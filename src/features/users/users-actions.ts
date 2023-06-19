@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import ky from 'ky';
 import { User } from './users-slice';
 
-const API = 'http://localhost:8000/users';
+const API = 'https://easy-pink-fez.cyclic.app/users';
 
 export const getUsers = createAsyncThunk('@users/get-users', async () => {
   const users = ky(API).json();

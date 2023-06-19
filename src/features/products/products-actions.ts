@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import ky from 'ky';
 import { Product } from './products-slice';
 
-const API = 'http://localhost:8000/products';
+const API = 'https://easy-pink-fez.cyclic.app/products';
 
 export const getProducts = createAsyncThunk(
   '@products/get-products',

@@ -11,6 +11,7 @@ export interface Product {
   title: string;
   price: number;
   category: string;
+  types: string;
   description: string;
   image: string;
   rating: object;
