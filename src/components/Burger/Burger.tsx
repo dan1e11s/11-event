@@ -1,13 +1,13 @@
-import styles from './index.module.scss';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
+import { selectAllConfigs } from '../../features/configs/configs-slice';
+import { setSideBar } from '../../features/configs/configs-slice';
 
 // icons
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
 
-import { useSelector } from 'react-redux';
-import { selectAllConfigs } from '../../features/configs/configs-slice';
-import { useAppDispatch } from '../../store';
-import { setSideBar } from '../../features/configs/configs-slice';
+import styles from './index.module.scss';
 
 const Burger = () => {
   const { footer, sideBar, isHome, isCartPage } = useSelector(selectAllConfigs);

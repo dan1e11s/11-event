@@ -23,22 +23,22 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemInCart = state.cart.find(
-        (item) => item.item.id === action.payload.cartItem.id
-      );
+      console.log(action.payload.item);
 
-      console.log(state.cart);
+      const itemInCart = state.cart.find(
+        (item) => item.item.id === action.payload.item.id
+      );
 
       if (itemInCart) {
         itemInCart.count++;
-        itemInCart.subPrice = action.payload.cartItem.price * itemInCart.count;
+        itemInCart.subPrice = action.payload.item.price * itemInCart.count;
         itemInCart.size = action.payload.size;
       } else {
         state.cart.push({
           count: 1,
-          item: action.payload.cartItem,
+          item: action.payload.item,
           size: action.payload.size,
-          subPrice: action.payload.cartItem.price,
+          subPrice: action.payload.item.price,
         });
       }
     },

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './index.module.scss';
 import {
   setProductsCategory,
@@ -6,14 +5,13 @@ import {
 } from '../../features/controls/controls-slice';
 import { useAppDispatch } from '../../store';
 import { useSelector } from 'react-redux';
-import { selectSearch } from '../../features/controls/controls-selectors';
+import {
+  selectCategory,
+  selectSearch,
+} from '../../features/controls/controls-selectors';
 
 const SearchInput = () => {
-  const [category, setCategory] = useState({
-    kids: false,
-    woman: true,
-    man: false,
-  });
+  const category = useSelector(selectCategory);
 
   const dispatch = useAppDispatch();
   const search = useSelector(selectSearch);
@@ -24,27 +22,24 @@ const SearchInput = () => {
         <li
           onClick={() => {
             dispatch(setProductsCategory("women's clothing"));
-            setCategory({ kids: false, woman: true, man: false });
           }}
-          className={category.woman ? styles.liActive : ''}
+          className={category === "women's clothing" ? styles.liActive : ''}
         >
           Woman
         </li>
         <li
           onClick={() => {
             dispatch(setProductsCategory("men's clothing"));
-            setCategory({ kids: false, woman: false, man: true });
           }}
-          className={category.man ? styles.liActive : ''}
+          className={category === "men's clothing" ? styles.liActive : ''}
         >
           Man
         </li>
         <li
           onClick={() => {
             dispatch(setProductsCategory("kid's clothing"));
-            setCategory({ kids: true, woman: false, man: false });
           }}
-          className={category.kids ? styles.liActive : ''}
+          className={category === "kid's clothing" ? styles.liActive : ''}
         >
           Kids
         </li>

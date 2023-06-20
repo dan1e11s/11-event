@@ -1,18 +1,28 @@
-import { BiBookmark } from 'react-icons/bi';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { FC } from 'react';
+import { useAppDispatch } from '../../../store';
 
-import styles from './index.module.scss';
 import {
   CartProduct,
   decrementCount,
   incrementCount,
   removeItem,
 } from '../../../features/cart/carts-slice';
-import { FC } from 'react';
-import { useAppDispatch } from '../../../store';
+import {
+  addToFavourites,
+  removeToFavourites,
+  selectAllFavourites,
+} from '../../../features/favourites/favourites-slice';
+
+import { BiBookmark } from 'react-icons/bi';
+import { BsFillBookmarkFill } from 'react-icons/bs';
+import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+
+import styles from './index.module.scss';
+import { useSelector } from 'react-redux';
 
 const CartItem: FC<{ cartItem: CartProduct }> = ({ cartItem }) => {
   const dispatch = useAppDispatch();
+  const { favourites } = useSelector(selectAllFavourites);
 
   return (
     <div className={styles.cartItem}>
@@ -23,7 +33,36 @@ const CartItem: FC<{ cartItem: CartProduct }> = ({ cartItem }) => {
         <div className={styles.cartName}>
           <p>{cartItem.item.title}</p>
           <span>
-            <BiBookmark />
+            {favourites.length !== 0 ? (
+              <>
+                {favourites.some(
+                  (item) => item.item.id === cartItem.item.id
+                ) ? (
+                  <BsFillBookmarkFill
+                    onClick={() => {
+                      dispatch(removeToFavourites(cartItem.item.id));
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  />
+                ) : (
+                  <BiBookmark
+                    onClick={() => {
+                      dispatch(addToFavourites(cartItem));
+                      dispatch(removeItem(cartItem.item.id));
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  />
+                )}
+              </>
+            ) : (
+              <BiBookmark
+                onClick={() => {
+                  dispatch(addToFavourites(cartItem));
+                  dispatch(removeItem(cartItem.item.id));
+                }}
+                style={{ cursor: 'pointer' }}
+              />
+            )}
           </span>
         </div>
         <div className={styles.cartPrice}>

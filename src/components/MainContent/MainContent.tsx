@@ -1,8 +1,8 @@
+import { useSelector } from 'react-redux';
+import { selectAllConfigs } from '../../features/configs/configs-slice';
 import { useInView } from 'react-intersection-observer';
 
 import styles from './index.module.scss';
-import { useSelector } from 'react-redux';
-import { selectAllConfigs } from '../../features/configs/configs-slice';
 
 const MainContent = () => {
   const [myRef1, inView1] = useInView();

@@ -3,6 +3,7 @@ import {
   createProducts,
   deleteProduct,
   editProducts,
+  getOneProduct,
   getProducts,
 } from './products-actions';
 
@@ -14,15 +15,18 @@ export interface Product {
   types: string;
   description: string;
   image: string;
+  images: string[];
   rating: object;
 }
 
 interface IProduct {
   products: Product[];
+  oneProduct: Product | null;
 }
 
 const initialState: IProduct = {
   products: [],
+  oneProduct: null,
 };
 
 const productSlice = createSlice({
@@ -36,6 +40,9 @@ const productSlice = createSlice({
         state.products = action.payload;
       }
     );
+    builder.addCase(getOneProduct.fulfilled, (state, action) => {
+      state.oneProduct = action.payload;
+    });
     builder.addCase(
       createProducts.fulfilled.type,
       (state, action: PayloadAction<Product>) => {

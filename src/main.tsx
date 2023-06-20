@@ -11,11 +11,15 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import UserPage from './pages/UserPage/UserPage';
 import CartPage from './pages/CartPage/CartPage';
+import ProductsDetailsPage from './pages/ProductDetailsPage/ProductsDetailsPage';
 
+// components
 import Layout from './components/Layout/Layout';
 import Account from './components/Personal/ChildComponents/Account/Account';
 import Settings from './components/Personal/ChildComponents/Settings/Settings';
 import Order from './components/Personal/ChildComponents/Order/Order';
+import Favourites from './components/Favourites/Favourites';
+import CartContent from './components/Cart/CartContent/CartContent';
 
 import './index.scss';
 
@@ -29,13 +33,15 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
             <Route path="search" element={<SearchPage />} />
+            <Route path="products/:id" element={<ProductsDetailsPage />} />
             <Route path="user" element={<UserPage />}>
               <Route index element={<Order />} />
               <Route path="account" element={<Account />} />
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="cart" element={<CartPage />}>
-              {/* <Route path='favourites' element{} /> */}
+              <Route index element={<CartContent />} />
+              <Route path="favourites" element={<Favourites />} />
             </Route>
           </Route>
         </Routes>

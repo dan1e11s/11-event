@@ -1,26 +1,26 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
+import { selectCurrentUser } from '../../features/users/users-selectors';
+import { getOneUser } from '../../features/users/users-actions';
+import { useNavigate } from 'react-router-dom';
+
+import { signInUser } from '../../firebase/firebase';
+import { isLoggedIn, startSession } from '../../firebase/storage/local';
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 
 // icons
 import { BiErrorCircle } from 'react-icons/bi';
 
 import styles from './index.module.scss';
-import { signInUser } from '../../firebase/firebase';
-import { isLoggedIn, startSession } from '../../firebase/storage/local';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../features/users/users-selectors';
-import { useAppDispatch } from '../../store';
-import { getOneUser } from '../../features/users/users-actions';
 
 const LoginForm = () => {
   const navigate = useNavigate();
 
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
-
-  console.log(currentUser);
 
   const { values, handleChange, handleSubmit, errors, touched } = useFormik({
     initialValues: {

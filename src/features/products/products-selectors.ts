@@ -2,6 +2,7 @@ import { RootState } from '../../store';
 import { CartProduct } from '../cart/carts-slice';
 
 export const selectAllProducts = (state: RootState) => state.products;
+export const selectOneProduct = (state: RootState) => state.products.oneProduct;
 
 export const selectVisibleProducts = (
   state: RootState,

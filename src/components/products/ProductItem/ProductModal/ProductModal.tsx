@@ -6,10 +6,10 @@ import { Product } from '../../../../features/products/products-slice';
 import { addToCart } from '../../../../features/cart/carts-slice';
 
 const ProductModal: FC<{
-  cartItem: Product;
+  item: Product;
   open: boolean;
   myRef: any;
-}> = ({ cartItem, open, myRef }) => {
+}> = ({ item, open, myRef }) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -26,15 +26,16 @@ const ProductModal: FC<{
           'L (large)',
           'XL (extra large)',
           'XXL (extra extra large)',
-        ].map((item) => (
+        ].map((elem) => (
           <li
-            key={item}
-            onClick={() => {
-              dispatch(addToCart({ cartItem, size: item }));
+            key={elem}
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(addToCart({ item, size: elem }));
               dispatch(setCartBar(true));
             }}
           >
-            {item}
+            {elem}
           </li>
         ))}
       </ul>

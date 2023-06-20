@@ -2,14 +2,23 @@ import { useSelector } from 'react-redux';
 import { selectAllConfigs } from '../../features/configs/configs-slice';
 
 import styles from './index.module.scss';
-import { selectAllProducts } from '../../features/products/products-selectors';
+import {
+  selectAllProducts,
+  selectVisibleProducts,
+} from '../../features/products/products-selectors';
 import { useEffect } from 'react';
-import { useAppDispatch } from '../../store';
+import { RootState, useAppDispatch } from '../../store';
 import { getProducts } from '../../features/products/products-actions';
+import { selectCategory } from '../../features/controls/controls-selectors';
+import { setProductsCategory } from '../../features/controls/controls-slice';
 
 const SideBar = () => {
+  const category = useSelector(selectCategory);
+
   const { sideBar } = useSelector(selectAllConfigs);
-  const { products } = useSelector(selectAllProducts);
+  const products = useSelector((state: RootState) => {
+    return selectVisibleProducts(state, { category });
+  });
 
   const dispatch = useAppDispatch();
 
@@ -30,9 +39,38 @@ const SideBar = () => {
         <div>
           <div className={styles.wrapper}>
             <div className={styles.content_titles}>
-              <p>Mens</p>
-              <p>Womens</p>
-              <p>Kids</p>
+              <p
+                style={
+                  category === "men's clothing"
+                    ? { borderBottom: '1px solid #000' }
+                    : { borderBottom: 'none' }
+                }
+                onClick={() => dispatch(setProductsCategory("men's clothing"))}
+              >
+                Mens
+              </p>
+              <p
+                style={
+                  category === "women's clothing"
+                    ? { borderBottom: '1px solid #000' }
+                    : { borderBottom: 'none' }
+                }
+                onClick={() =>
+                  dispatch(setProductsCategory("women's clothing"))
+                }
+              >
+                Womens
+              </p>
+              <p
+                style={
+                  category === "kid's clothing"
+                    ? { borderBottom: '1px solid #000' }
+                    : { borderBottom: 'none' }
+                }
+                onClick={() => dispatch(setProductsCategory("kid's clothing"))}
+              >
+                Kids
+              </p>
             </div>
           </div>
           <ul className={styles.list}>

@@ -7,6 +7,7 @@ import { countryReducer } from './features/countries/country-slice';
 import { controlsReducer } from './features/controls/controls-slice';
 import { usersReducer } from './features/users/users-slice';
 import { cartReducer } from './features/cart/carts-slice';
+import { favouritesReducer } from './features/favourites/favourites-slice';
 
 import {
   FLUSH,
@@ -25,8 +26,13 @@ const persistConfig = {
   storage,
 };
 
+const storageReducers = combineReducers({
+  cart: cartReducer,
+  favourites: favouritesReducer,
+});
+
 const rootReducer = combineReducers({
-  cart: persistReducer(persistConfig, cartReducer),
+  storage: persistReducer(persistConfig, storageReducers),
   products: productsReducer,
   configs: configsReducer,
   countries: countryReducer,

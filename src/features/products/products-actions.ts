@@ -12,6 +12,14 @@ export const getProducts = createAsyncThunk(
   }
 );
 
+export const getOneProduct = createAsyncThunk<Product, string>(
+  '@products/get-one-product',
+  async (id) => {
+    const oneProduct = await ky(`${API}/${id}`).json<Product>();
+    return oneProduct;
+  }
+);
+
 export const createProducts = createAsyncThunk(
   '@products/create-products',
   async (obj: Product) => {

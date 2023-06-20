@@ -1,20 +1,31 @@
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectAllConfigs } from '../../features/configs/configs-slice';
+import { useNavigate } from 'react-router-dom';
+import {
+  selectAllConfigs,
+  setUserName,
+} from '../../features/configs/configs-slice';
+import { selectAllCart } from '../../features/cart/cart-selectors';
 
 // icons
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 import styles from './index.module.scss';
-import { selectAllCart } from '../../features/cart/cart-selectors';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../store';
+import { getSession } from '../../firebase/storage/local';
 
 const NavBar = () => {
   const { isHome, userName, footer, isLogin, isSearchPage, isCartPage } =
     useSelector(selectAllConfigs);
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 
   const { cart } = useSelector(selectAllCart);
+
+  useEffect(() => {
+    dispatch(setUserName(getSession().userName));
+  }, [dispatch]);
 
   return (
     <nav

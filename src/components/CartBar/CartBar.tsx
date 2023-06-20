@@ -1,14 +1,15 @@
-import { IoMdClose } from 'react-icons/io';
-
-import styles from './index.module.scss';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
 import {
   selectAllConfigs,
   setCartBar,
 } from '../../features/configs/configs-slice';
-import { useAppDispatch } from '../../store';
 import { selectAllCart } from '../../features/cart/cart-selectors';
 import { useNavigate } from 'react-router-dom';
+
+import { IoMdClose } from 'react-icons/io';
+
+import styles from './index.module.scss';
 
 const CartBar = () => {
   const { cartBar } = useSelector(selectAllConfigs);
