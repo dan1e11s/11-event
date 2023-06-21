@@ -12,9 +12,8 @@
 body {
   font-family: 'Hind Siliguri', sans-serif;
   font-weight: 300;
-  color: #000;
+  color: var(--black);
   letter-spacing: 3px;
-  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -24,5 +23,5 @@ li {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--black);
 }

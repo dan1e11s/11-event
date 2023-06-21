@@ -58,6 +58,39 @@ const ProductsDetails = () => {
     }
   }, []);
 
+  const handleImageClick = (index: number) => {
+    switch (index) {
+      case 0:
+        progressBarRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+        break;
+      case 1:
+        progressBarRef.current?.scrollTo({
+          top: 498,
+          behavior: 'smooth',
+        });
+        break;
+      case 2:
+        progressBarRef.current?.scrollTo({
+          top: 996,
+          behavior: 'smooth',
+        });
+        break;
+      case 3:
+        progressBarRef.current?.scrollTo({
+          top: 1495,
+          behavior: 'smooth',
+        });
+        break;
+      case 4:
+        progressBarRef.current?.scrollTo({
+          top: 1993,
+          behavior: 'smooth',
+        });
+        break;
+      default:
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.composition}>
@@ -85,6 +118,18 @@ const ProductsDetails = () => {
             className={styles.progressBar}
             style={{ height: `${Math.round(scroll * 502)}px` }}
           ></div>
+        </div>
+        <div className={styles.galery}>
+          {oneProduct &&
+            oneProduct.images.map((item, index) => (
+              <div
+                key={item}
+                className={styles.galeryItem}
+                onClick={() => handleImageClick(index)}
+              >
+                <img src={item} alt="" />
+              </div>
+            ))}
         </div>
       </div>
       <div className={styles.descr}>

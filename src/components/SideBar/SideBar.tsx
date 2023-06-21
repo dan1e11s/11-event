@@ -2,10 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectAllConfigs } from '../../features/configs/configs-slice';
 
 import styles from './index.module.scss';
-import {
-  selectAllProducts,
-  selectVisibleProducts,
-} from '../../features/products/products-selectors';
+import { selectVisibleProducts } from '../../features/products/products-selectors';
 import { useEffect } from 'react';
 import { RootState, useAppDispatch } from '../../store';
 import { getProducts } from '../../features/products/products-actions';
