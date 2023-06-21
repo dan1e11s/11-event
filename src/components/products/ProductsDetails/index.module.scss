@@ -30,8 +30,8 @@
   & button {
     margin-top: 30px;
     border: none;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
+    border-bottom: var(--border-black);
+    background-color: var(--white);
     font-size: 12px;
     cursor: pointer;
   }
@@ -45,7 +45,7 @@
 }
 
 .main {
-  border: 1px solid #000;
+  border: var(--border-black);
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -75,7 +75,7 @@
 }
 
 .progressBar {
-  background-color: #000;
+  background-color: var(--black);
   width: 100%;
 }
 
@@ -108,8 +108,8 @@
     height: 40px;
     text-transform: uppercase;
     margin-top: 20px;
-    background-color: #fff;
-    border: 1px solid #000;
+    background-color: var(--white);
+    border: var(--border-black);
     cursor: pointer;
 
     &:hover {
@@ -122,8 +122,8 @@
   font-size: 12px;
   margin-top: 20px;
   padding: 5px;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-top: var(--border-black);
+  border-bottom: var(--border-black);
 
   & li {
     cursor: pointer;

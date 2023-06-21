@@ -32,7 +32,10 @@ const ProductItem: FC<{ item: Product }> = ({ item }) => {
   return (
     <div
       className={styles.card}
-      onClick={() => navigate(`/products/${item.id}`)}
+      onClick={() => {
+        navigate(`/products/${item.id}`);
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }}
     >
       <div className={styles.img}>
         <img src={item.image} alt="" />

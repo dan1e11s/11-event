@@ -22,7 +22,7 @@
 
   &::-webkit-scrollbar-thumb {
     background-clip: content-box;
-    background-color: #000;
+    background-color: var(--black);
     border-radius: 100vw;
     border: 0.5em solid transparent;
   }
@@ -55,9 +55,9 @@
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 3px;
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #000;
+    background-color: var(--black);
+    color: var(--white);
+    border: var(--border-black);
     cursor: pointer;
 
     &:hover {

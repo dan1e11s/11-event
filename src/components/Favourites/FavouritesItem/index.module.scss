@@ -6,7 +6,7 @@
 }
 
 .itemContent {
-  border: 1px solid #000;
+  border: var(--border-bottom);
 }
 
 .itemDescr {
@@ -33,7 +33,7 @@
 }
 
 .itemBtn {
-  color: #000;
+  color: var(--black);
 
   & button {
     width: 120px;
@@ -42,7 +42,7 @@
     font-size: 12px;
     letter-spacing: 1px;
     background-color: transparent;
-    border: 1px solid #000;
+    border: var(--border-black);
     cursor: pointer;
 
     &:hover {

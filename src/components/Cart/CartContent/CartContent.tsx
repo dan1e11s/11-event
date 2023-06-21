@@ -10,9 +10,11 @@ import { setTotalPrice } from '../../../features/cart/carts-slice';
 import CartItem from '../CartItem/CartItem';
 
 import styles from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const CartContent = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { cart, totalPrice } = useSelector(selectAllCart);
 
@@ -40,7 +42,9 @@ const CartContent = () => {
                 width: '45%',
                 height: '185px',
                 marginBottom: '20px',
+                cursor: 'pointer',
               }}
+              onClick={() => navigate(`/products/${item.id}`)}
             >
               <img
                 src={item.image}

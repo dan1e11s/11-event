@@ -25,7 +25,7 @@
 
 .list li:first-child {
   margin-right: 145px;
-  border-bottom: 1px solid #fff;
+  border-bottom: var(--border-white);
   padding-right: 30px;
   cursor: pointer;
 }
@@ -51,8 +51,8 @@
 }
 
 .bg {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .isSearch {

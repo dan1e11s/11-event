@@ -1,0 +1,14 @@
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  padding-left: 50px;
+}

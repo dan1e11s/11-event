@@ -2,10 +2,10 @@
   width: 100%;
   margin: 0 auto;
   padding: 7rem 30px 15px;
-  color: #000;
+  color: var(--black);
   margin-bottom: 35px;
   position: fixed;
-  background-color: #fff;
+  background-color: var(--white);
   z-index: 1;
 }
 
@@ -22,7 +22,7 @@
 
 .liActive {
   font-weight: 700;
-  border-bottom: 1px solid #000;
+  border-bottom: var(--border-black);
 }
 
 .searchInp {
@@ -30,7 +30,7 @@
   height: 50px;
   margin-top: 20px;
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: var(--border-black);
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 2px;

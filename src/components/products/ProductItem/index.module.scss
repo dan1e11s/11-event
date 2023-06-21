@@ -7,7 +7,7 @@
 .img {
   position: relative;
   width: 100%;
-  border: 1px solid #000;
+  border: var(--border-black);
   height: 350px;
   padding: 10px;
   cursor: pointer;
@@ -53,13 +53,13 @@
 
 .sizes {
   width: 102%;
-  background-color: #fff;
+  background-color: var(--white);
   font-size: 11px;
   position: absolute;
   bottom: 57px;
   left: -2px;
   z-index: 1;
-  border: 1px solid #000;
+  border: var(--border-black);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
