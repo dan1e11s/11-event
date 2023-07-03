@@ -1,23 +1,29 @@
 import { useSelector } from 'react-redux';
-import { selectAllConfigs } from '../../features/configs/configs-slice';
+import {
+  selectAllConfigs,
+  setSideBar,
+} from '../../features/configs/configs-slice';
 
 import styles from './index.module.scss';
-import { selectVisibleProducts } from '../../features/products/products-selectors';
+import { selectProductsCategories } from '../../features/products/products-selectors';
 import { useEffect } from 'react';
 import { RootState, useAppDispatch } from '../../store';
 import { getProducts } from '../../features/products/products-actions';
 import { selectCategory } from '../../features/controls/controls-selectors';
 import { setProductsCategory } from '../../features/controls/controls-slice';
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = () => {
   const category = useSelector(selectCategory);
 
   const { sideBar } = useSelector(selectAllConfigs);
-  const products = useSelector((state: RootState) => {
-    return selectVisibleProducts(state, { category });
+  const categories = useSelector((state: RootState) => {
+    return Array.from(new Set(selectProductsCategories(state, { category })));
   });
 
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getProducts());
@@ -71,8 +77,17 @@ const SideBar = () => {
             </div>
           </div>
           <ul className={styles.list}>
-            {products.map((item) => (
-              <li key={item.id}>{item.title}</li>
+            {categories.map((item, index) => (
+              <li
+                onClick={() => {
+                  navigate(`/filter/${item}/${category}`);
+                  dispatch(setSideBar());
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                key={index}
+              >
+                {item}
+              </li>
             ))}
           </ul>
         </div>

@@ -13,18 +13,28 @@ import styles from './index.module.scss';
 import { useEffect } from 'react';
 import { useAppDispatch } from '../../store';
 import { getSession } from '../../firebase/storage/local';
+import {
+  selectAllUsers,
+  selectCurrentUser,
+} from '../../features/users/users-selectors';
 
 const NavBar = () => {
   const { isHome, userName, footer, isLogin, isSearchPage, isCartPage } =
     useSelector(selectAllConfigs);
   const dispatch = useAppDispatch();
 
+  const currentUser = useSelector(selectCurrentUser);
+
+  console.log(currentUser);
+
   const navigate = useNavigate();
 
   const { cart } = useSelector(selectAllCart);
 
   useEffect(() => {
-    dispatch(setUserName(getSession().userName));
+    if (getSession().userName) {
+      dispatch(setUserName(getSession().userName));
+    }
   }, [dispatch]);
 
   return (

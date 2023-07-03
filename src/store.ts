@@ -8,6 +8,7 @@ import { controlsReducer } from './features/controls/controls-slice';
 import { usersReducer } from './features/users/users-slice';
 import { cartReducer } from './features/cart/carts-slice';
 import { favouritesReducer } from './features/favourites/favourites-slice';
+import { photosReducer } from './features/photos/photos-slice';
 
 import {
   FLUSH,
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   countries: countryReducer,
   controls: controlsReducer,
   users: usersReducer,
+  photos: photosReducer,
 });
 
 export const store = configureStore({

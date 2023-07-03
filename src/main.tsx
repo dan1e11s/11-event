@@ -12,6 +12,7 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import UserPage from './pages/UserPage/UserPage';
 import CartPage from './pages/CartPage/CartPage';
 import ProductsDetailsPage from './pages/ProductDetailsPage/ProductsDetailsPage';
+import FilteredProductsPage from './pages/FilteredProductsPage/FilteredProductsPage';
 
 // components
 import Layout from './components/Layout/Layout';
@@ -21,7 +22,7 @@ import Order from './components/Personal/ChildComponents/Order/Order';
 import Favourites from './components/Favourites/Favourites';
 import CartContent from './components/Cart/CartContent/CartContent';
 
-import './index.scss';
+import './index.module.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
@@ -34,6 +35,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="register" element={<RegisterPage />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="products/:id" element={<ProductsDetailsPage />} />
+            <Route
+              path="filter/:type/:category"
+              element={<FilteredProductsPage />}
+            />
             <Route path="user" element={<UserPage />}>
               <Route index element={<Order />} />
               <Route path="account" element={<Account />} />

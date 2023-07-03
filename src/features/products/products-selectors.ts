@@ -4,6 +4,15 @@ import { CartProduct } from '../cart/carts-slice';
 export const selectAllProducts = (state: RootState) => state.products;
 export const selectOneProduct = (state: RootState) => state.products.oneProduct;
 
+export const selectFilteredProducts = (
+  state: RootState,
+  { type = '', category = '' }
+) => {
+  return state.products.products.filter(
+    (item) => item.category === category && item.types === type
+  );
+};
+
 export const selectVisibleProducts = (
   state: RootState,
   { category = "women's clothing", search = '' }
@@ -46,4 +55,29 @@ export const selectRelatedProducts = (
       }
     }
   });
+};
+
+export const selectProductsCategories = (
+  state: RootState,
+  { category = "women's clothing" }
+) => {
+  let categories = [];
+
+  if (category === "women's clothing") {
+    categories = state.products.products
+      .filter((item) => item.category === category)
+      .map((item) => item.types);
+  } else if (category === "men's clothing") {
+    categories = state.products.products
+      .filter((item) => item.category === category)
+      .map((item) => item.types);
+  } else if (category === "kid's clothing") {
+    categories = state.products.products
+      .filter((item) => item.category === category)
+      .map((item) => item.types);
+  } else {
+    categories = state.products.products.map((item) => item.types);
+  }
+
+  return categories;
 };

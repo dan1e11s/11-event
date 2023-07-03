@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import ky from 'ky';
 import { User } from './users-slice';
 
-const API = 'https://easy-pink-fez.cyclic.app/users';
+const API = 'https://json-server-vercel-tau-eight.vercel.app/users';
 
 export const getUsers = createAsyncThunk('@users/get-users', async () => {
   const users = ky(API).json();
@@ -12,14 +12,21 @@ export const getUsers = createAsyncThunk('@users/get-users', async () => {
 
 export const addUser = createAsyncThunk(
   '@users/add-user',
-  async (obj: User) => {
-    const user = await ky
-      .post(API, {
-        json: obj,
-      })
-      .json<User[]>();
+  async (obj: User, { getState }) => {
+    const users = getState();
+    console.log(users);
 
-    return user;
+    const user = await fetch(API, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj),
+    });
+
+    const data = await user.json();
+
+    return data;
   }
 );
 

@@ -1,6 +1,8 @@
+@import '../../static/scss/mixins';
+
 .wrapper {
   min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+
+  @include flexMixin;
 }

@@ -1,3 +1,5 @@
+@import '../../../static/scss/mixins';
+
 .card {
   width: 15%;
   margin-bottom: 35px;
@@ -45,10 +47,9 @@
 }
 
 .cardText {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 5px;
+
+  @include flexMixin;
 }
 
 .sizes {

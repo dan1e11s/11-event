@@ -63,7 +63,7 @@ h4 {
   transition: all 0.3s;
 
   &:hover {
-    background-color: #3e3e3e;
+    background-color: var(--hover-btn-background-color);
     cursor: pointer;
   }
 }
@@ -96,6 +96,6 @@ h4 {
   cursor: pointer;
 
   &:hover {
-    border-color: #7d7d7d;
+    border-color: var(--hover-btn-border-color);
   }
 }

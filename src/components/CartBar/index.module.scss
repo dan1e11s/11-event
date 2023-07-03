@@ -63,6 +63,6 @@
   cursor: pointer;
 
   &:hover {
-    border-color: #7d7d7d;
+    border-color: var(--hover-btn-border-color);
   }
 }

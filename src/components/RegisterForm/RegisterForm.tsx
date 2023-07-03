@@ -8,7 +8,7 @@ import {
   selectCountries,
 } from '../../features/countries/country-slice';
 import { useAppDispatch } from '../../store';
-import { addUser } from '../../features/users/users-actions';
+import { addUser, getOneUser } from '../../features/users/users-actions';
 
 //validations
 import { useFormik } from 'formik';
@@ -19,9 +19,10 @@ import { BiErrorCircle } from 'react-icons/bi';
 
 // firebase
 import { createUser } from '../../firebase/firebase';
-import { startSession } from '../../firebase/storage/local';
+import { getSession, startSession } from '../../firebase/storage/local';
 
 import styles from './index.module.scss';
+import { setUserName } from '../../features/configs/configs-slice';
 
 const RegisterForm = () => {
   const dispatch = useAppDispatch();
@@ -54,10 +55,13 @@ const RegisterForm = () => {
     onSubmit: async (values) => {
       try {
         const user = await createUser(values);
+
         dispatch(addUser({ ...values, id: user.uid }));
         startSession(user, values.firstName, user.uid);
 
-        navigate('/');
+        if (getSession().userName) {
+          navigate('/');
+        }
       } catch (error) {
         if (error instanceof Error) {
           console.log('Error', error.message);

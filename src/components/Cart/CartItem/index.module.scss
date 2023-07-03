@@ -1,4 +1,6 @@
-.cartItem {
+@import '../../../static/scss/mixins';
+
+.cartWrapper {
   & img {
     width: 325px;
     height: 420px;
@@ -16,8 +18,7 @@
 }
 
 .cartName {
-  display: flex;
-  justify-content: space-between;
+  @include flexMixin;
 
   & p {
     cursor: pointer;
@@ -29,13 +30,11 @@
 }
 
 .cartPrice {
-  display: flex;
-  justify-content: space-between;
+  @include flexMixin;
 }
 
 .cartBtns {
-  display: flex;
-  justify-content: space-between;
+  @include flexMixin;
 
   & p {
     cursor: pointer;

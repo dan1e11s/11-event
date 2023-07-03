@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import ky from 'ky';
 import { Product } from './products-slice';
 
-const API = 'https://easy-pink-fez.cyclic.app/products';
+const API = 'https://json-server-vercel-tau-eight.vercel.app/products';
 
 export const getProducts = createAsyncThunk(
   '@products/get-products',

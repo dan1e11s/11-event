@@ -1,3 +1,5 @@
+@import '../../../../static/scss/mixins';
+
 .main {
   width: 87%;
   margin: 0 auto;
@@ -12,11 +14,10 @@
 
 .item {
   width: 40%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 40px;
   cursor: pointer;
+
+  @include flexMixin;
 }
 
 .email {

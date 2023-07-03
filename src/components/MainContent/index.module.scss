@@ -1,40 +1,8 @@
-.bg1 {
+.bg {
   height: 100vh;
-  background: url('https://source.unsplash.com/random?style/featured/1920x1080');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.bg2 {
-  height: 100vh;
-  background: url('https://source.unsplash.com/random?style/featured/1921x1080');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-}
-
-.bg3 {
-  height: 100vh;
-  background: url('https://source.unsplash.com/random?style/featured/1922x1080');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.bg4 {
-  height: 100vh;
-  background: url('https://source.unsplash.com/random?style/featured/1920x1082');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.bg5 {
-  height: 100vh;
-  background: url('https://source.unsplash.com/featured/1920x1081');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .child {

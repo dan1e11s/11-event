@@ -17,15 +17,16 @@ import { BiBookmark } from 'react-icons/bi';
 import { BsFillBookmarkFill } from 'react-icons/bs';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
-import styles from './index.module.scss';
 import { useSelector } from 'react-redux';
+
+import styles from './index.module.scss';
 
 const CartItem: FC<{ cartItem: CartProduct }> = ({ cartItem }) => {
   const dispatch = useAppDispatch();
   const { favourites } = useSelector(selectAllFavourites);
 
   return (
-    <div className={styles.cartItem}>
+    <div className={styles.cartWrapper}>
       <div className={styles.cartContent}>
         <img src={cartItem.item.image} alt="" />
       </div>

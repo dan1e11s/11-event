@@ -1,3 +1,5 @@
+@import '../../../static/scss/mixins';
+
 .cartContent {
   display: flex;
   justify-content: space-between;
@@ -7,10 +9,10 @@
   width: 25%;
   height: 70vh;
   padding: 15px;
-  display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   overflow-y: scroll;
+
+  @include flexMixin;
 
   &::-webkit-scrollbar {
     width: 12px;
@@ -30,10 +32,9 @@
 
 .cartList {
   width: 70%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+
+  @include flexMixin;
 }
 
 .cartTotal {
@@ -61,7 +62,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #222121;
+      background-color: var(--hover-btn-background-color);
     }
   }
 }
