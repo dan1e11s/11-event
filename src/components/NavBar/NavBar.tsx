@@ -41,7 +41,7 @@ const NavBar = () => {
             <li
               style={
                 footer
-                  ? { borderBottom: '1px solid #000' }
+                  ? { borderBottom: '1px 2solid #000' }
                   : {
                       borderBottom: isHome
                         ? '1px solid #fff'

@@ -9,12 +9,12 @@ import { User } from '../features/users/users-slice';
 import { getFirestore } from '@firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAC-Q4JPdgQmoLxkDERPyVbs4en__0soxc',
-  authDomain: 'fake-store-auth-55327.firebaseapp.com',
-  projectId: 'fake-store-auth-55327',
-  storageBucket: 'fake-store-auth-55327.appspot.com',
-  messagingSenderId: '1030614265433',
-  appId: '1:1030614265433:web:5d291a96adfaba6314cb48',
+  apiKey: import.meta.env.REACT_APP_API_KEY,
+  authDomain: import.meta.env.AUTH_DOMAIN,
+  projectId: import.meta.env.PROJECT_ID,
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID,
 };
 
 export const app = initializeApp(firebaseConfig);
