@@ -9,7 +9,6 @@ interface IConfig {
   isLogin: boolean;
   isSearchPage: boolean;
   isCartPage: boolean;
-  userName: null;
 }
 
 const initialState: IConfig = {
@@ -20,7 +19,6 @@ const initialState: IConfig = {
   isLogin: false,
   isSearchPage: false,
   isCartPage: false,
-  userName: null,
 };
 
 export const configsSlice = createSlice({
@@ -52,9 +50,6 @@ export const configsSlice = createSlice({
     setIsCartPage: (state, action) => {
       state.isCartPage = action.payload;
     },
-    setUserName: (state, action) => {
-      state.userName = action.payload;
-    },
   },
 });
 
@@ -67,7 +62,6 @@ export const {
   setFooter,
   setIsLogin,
   setIsHome,
-  setUserName,
   setIsSearchPage,
   setIsCartPage,
 } = configsSlice.actions;

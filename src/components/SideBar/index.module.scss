@@ -8,6 +8,22 @@
   opacity: 0;
   transition: all 800ms ease-in-out;
   box-shadow: 5px 0px 4px rgba(0, 0, 0, 0.5);
+
+  @media all and (max-width: 1024px) {
+    width: 35%;
+  }
+
+  @media all and (max-width: 900px) {
+    width: 40%;
+  }
+
+  @media all and (max-width: 791px) {
+    width: 45%;
+  }
+
+  @media all and (max-width: 769px) {
+    width: 100%;
+  }
 }
 
 .container {
@@ -67,4 +83,36 @@
   background-color: var(--black);
   border-radius: 100vw;
   border: 0.5em solid transparent;
+}
+
+.number {
+  letter-spacing: 0;
+  font-size: 10px;
+  position: absolute;
+  top: 9.1px;
+  left: 16px;
+
+  @media all and (max-width: 900px) {
+    font-size: 9px;
+    top: 7.1px;
+    left: 14px;
+  }
+}
+
+.twoNumber {
+  letter-spacing: 0;
+  font-size: 10px;
+  position: absolute;
+  top: 9.1px;
+  left: 14px;
+
+  @media all and (max-width: 900px) {
+    font-size: 9px;
+    top: 7.1px;
+    left: 12px;
+  }
+}
+
+.block {
+  color: var(--black) !important;
 }

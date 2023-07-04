@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
 import { useAppDispatch } from '../../../../store';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../../features/users/users-selectors';
-import { getOneUser } from '../../../../features/users/users-actions';
 
 import { BsChevronRight } from 'react-icons/bs';
 
 import styles from './index.module.scss';
-import { endSession } from '../../../../firebase/storage/local';
 import { useNavigate } from 'react-router-dom';
+import { setCurrentUser } from '../../../../features/users/users-slice';
+import { endSession, getSession } from '../../../../firebase/storage/local';
+import { useEffect } from 'react';
+import { getUserByEmail } from '../../../../features/users/users-actions';
 
 const Account = () => {
   const dispatch = useAppDispatch();
@@ -17,9 +18,13 @@ const Account = () => {
   const currentUser = useSelector(selectCurrentUser);
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
-    if (userId) {
-      dispatch(getOneUser(userId));
+    const userEmail = getSession().userEmail;
+    if (userEmail !== null) {
+      const getOneUser = async () => {
+        const { payload } = await dispatch(getUserByEmail(userEmail));
+        dispatch(setCurrentUser(payload));
+      };
+      getOneUser();
     }
   }, [dispatch]);
 
@@ -53,6 +58,7 @@ const Account = () => {
           <div className={styles.signOut}>
             <p
               onClick={() => {
+                dispatch(setCurrentUser(null));
                 endSession();
                 navigate('/');
               }}

@@ -1,17 +1,17 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../../store';
 import {
   selectAllConfigs,
   setSideBar,
 } from '../../features/configs/configs-slice';
+import { setProductsCategory } from '../../features/controls/controls-slice';
+import { selectProductsCategories } from '../../features/products/products-selectors';
+import { selectCategory } from '../../features/controls/controls-selectors';
+import { getProducts } from '../../features/products/products-actions';
 
 import styles from './index.module.scss';
-import { selectProductsCategories } from '../../features/products/products-selectors';
-import { useEffect } from 'react';
-import { RootState, useAppDispatch } from '../../store';
-import { getProducts } from '../../features/products/products-actions';
-import { selectCategory } from '../../features/controls/controls-selectors';
-import { setProductsCategory } from '../../features/controls/controls-slice';
-import { useNavigate } from 'react-router-dom';
 
 const SideBar = () => {
   const category = useSelector(selectCategory);

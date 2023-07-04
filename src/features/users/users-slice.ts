@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { addUser, getOneUser, getUsers } from './users-actions';
+import { addUser, getUsers } from './users-actions';
 
 export interface User {
   email: string;
@@ -29,7 +29,11 @@ const initialState: IUsers = {
 export const usersSlice = createSlice({
   name: '@users',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(
       getUsers.fulfilled.type,
@@ -43,13 +47,8 @@ export const usersSlice = createSlice({
         state.users.push(action.payload);
       }
     );
-    builder.addCase(
-      getOneUser.fulfilled.type,
-      (state, action: PayloadAction<User>) => {
-        state.currentUser = action.payload;
-      }
-    );
   },
 });
 
+export const { setCurrentUser } = usersSlice.actions;
 export const usersReducer = usersSlice.reducer;

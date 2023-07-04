@@ -1,20 +1,16 @@
-export const startSession = (user: any, userName: string, id: string) => {
-  localStorage.setItem('accessToken', user.accessToken);
+export const startSession = (userName: string, userEmail: string) => {
   localStorage.setItem('userName', userName);
-  localStorage.setItem('userId', id);
+  localStorage.setItem('userEmail', userEmail);
 };
 
 export const getSession = () => {
   return {
-    accessToken: localStorage.getItem('accessToken'),
     userName: localStorage.getItem('userName'),
+    userEmail: localStorage.getItem('userEmail'),
   };
 };
 
 export const endSession = () => {
-  localStorage.clear();
-};
-
-export const isLoggedIn = () => {
-  return getSession().userName;
+  localStorage.removeItem('userName');
+  localStorage.removeItem('userEmail');
 };

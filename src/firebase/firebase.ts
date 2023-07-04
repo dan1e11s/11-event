@@ -6,6 +6,8 @@ import {
 } from 'firebase/auth';
 import { User } from '../features/users/users-slice';
 
+import { getFirestore } from '@firebase/firestore';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyAC-Q4JPdgQmoLxkDERPyVbs4en__0soxc',
   authDomain: 'fake-store-auth-55327.firebaseapp.com',
@@ -30,3 +32,5 @@ export const createUser = async (obj: User) => {
 export const signInUser = async (email: string, password: string) => {
   return signInWithEmailAndPassword(getAuth(app), email, password);
 };
+
+export const db = getFirestore(app);

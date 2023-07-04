@@ -1,41 +1,22 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  selectAllConfigs,
-  setUserName,
-} from '../../features/configs/configs-slice';
+import { selectAllConfigs } from '../../features/configs/configs-slice';
 import { selectAllCart } from '../../features/cart/cart-selectors';
 
 // icons
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-import styles from './index.module.scss';
-import { useEffect } from 'react';
-import { useAppDispatch } from '../../store';
 import { getSession } from '../../firebase/storage/local';
-import {
-  selectAllUsers,
-  selectCurrentUser,
-} from '../../features/users/users-selectors';
+
+import styles from './index.module.scss';
 
 const NavBar = () => {
-  const { isHome, userName, footer, isLogin, isSearchPage, isCartPage } =
+  const { isHome, footer, isLogin, isSearchPage, isCartPage } =
     useSelector(selectAllConfigs);
-  const dispatch = useAppDispatch();
-
-  const currentUser = useSelector(selectCurrentUser);
-
-  console.log(currentUser);
 
   const navigate = useNavigate();
 
   const { cart } = useSelector(selectAllCart);
-
-  useEffect(() => {
-    if (getSession().userName) {
-      dispatch(setUserName(getSession().userName));
-    }
-  }, [dispatch]);
 
   return (
     <nav
@@ -81,10 +62,10 @@ const NavBar = () => {
                 isLogin ? { visibility: 'hidden' } : { visibility: 'visible' }
               }
               onClick={() =>
-                userName ? navigate('/user') : navigate('/login')
+                getSession().userName ? navigate('/user') : navigate('/login')
               }
             >
-              {userName ? userName : 'Log in'}
+              {getSession().userName ? getSession().userName : 'Log in'}
             </li>
             <li>HELP</li>
             <li

@@ -9,18 +9,15 @@ import { useAppDispatch } from '../../store';
 import {
   setCartBar,
   setIsSearchPage,
-  setUserName,
 } from '../../features/configs/configs-slice';
 
 import styles from './index.module.scss';
-import { getSession } from '../../firebase/storage/local';
 import { setProductsCategory } from '../../features/controls/controls-slice';
 
 const SearchPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(setUserName(getSession().userName));
     dispatch(setIsSearchPage(true));
     dispatch(setCartBar(false));
 

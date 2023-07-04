@@ -1,12 +1,6 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../store';
-import { selectCurrentUser } from '../../features/users/users-selectors';
-import { getOneUser } from '../../features/users/users-actions';
 import { useNavigate } from 'react-router-dom';
 
 import { signInUser } from '../../firebase/firebase';
-import { isLoggedIn, startSession } from '../../firebase/storage/local';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -15,11 +9,14 @@ import * as Yup from 'yup';
 import { BiErrorCircle } from 'react-icons/bi';
 
 import styles from './index.module.scss';
+import { User, setCurrentUser } from '../../features/users/users-slice';
+import { useAppDispatch } from '../../store';
+import { getUserByEmail } from '../../features/users/users-actions';
+import { startSession } from '../../firebase/storage/local';
 
 const LoginForm = () => {
   const navigate = useNavigate();
 
-  const currentUser = useSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
 
   const { values, handleChange, handleSubmit, errors, touched } = useFormik({
@@ -29,12 +26,13 @@ const LoginForm = () => {
     },
     onSubmit: async (values) => {
       try {
-        const { user } = await signInUser(values.email, values.password);
-        await dispatch(getOneUser(user.uid));
-        if (currentUser) {
-          startSession(user, currentUser?.firstName, user.uid);
-          navigate('/');
-        }
+        await signInUser(values.email, values.password);
+        const { payload } = (await dispatch(getUserByEmail(values.email))) as {
+          payload: User;
+        };
+        dispatch(setCurrentUser(payload));
+        startSession(payload.firstName, values.email);
+        navigate('/');
       } catch (error) {
         if (error instanceof Error) {
           console.log('Error', error.message);
@@ -50,12 +48,6 @@ const LoginForm = () => {
         .min(6, 'Password is too short'),
     }),
   });
-
-  useEffect(() => {
-    if (isLoggedIn()) {
-      navigate('/');
-    }
-  }, [navigate]);
 
   return (
     <div className={styles.wrapper}>
