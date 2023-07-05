@@ -1,16 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchPhotos } from './photos-actions';
-
-export interface Photo {
-  id: number;
-  urls: {
-    regular: string;
-  };
-}
-
-interface InitPhoto {
-  photos: Photo[];
-}
+import { InitPhoto } from './types';
 
 const initialState: InitPhoto = {
   photos: [],

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import ky from 'ky';
-import { Product } from './products-slice';
+import { Product } from './types';
 
 const API = 'https://json-server-vercel-tau-eight.vercel.app/products';
 

@@ -4,8 +4,8 @@ import { BsPlus } from 'react-icons/bs';
 
 import styles from './index.module.scss';
 import ProductModal from './ProductModal/ProductModal';
-import { Product } from '../../../features/products/products-slice';
 import { useNavigate } from 'react-router-dom';
+import { Product } from '../../../features/products/types';
 
 const ProductItem: FC<{ item: Product }> = ({ item }) => {
   const [open, setOpen] = useState(false);

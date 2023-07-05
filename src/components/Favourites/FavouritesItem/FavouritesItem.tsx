@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { useAppDispatch } from '../../../store';
 import { removeToFavourites } from '../../../features/favourites/favourites-slice';
-import { CartProduct, addToCart } from '../../../features/cart/carts-slice';
+import { addToCart } from '../../../features/cart/carts-slice';
 
 import { BsFillBookmarkFill } from 'react-icons/bs';
 
 import styles from './index.module.scss';
+import { CartProduct } from '../../../features/cart/types';
 
 const FavouritesItem: FC<{ item: CartProduct }> = ({ item }) => {
   const dispatch = useAppDispatch();

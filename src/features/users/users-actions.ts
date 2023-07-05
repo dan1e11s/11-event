@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User } from './users-slice';
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
+import { User } from './types';
 
 const usersCollectionRef = collection(db, 'users');
 
@@ -36,32 +36,3 @@ export const addUser = createAsyncThunk(
     return obj;
   }
 );
-
-// export const addUser = createAsyncThunk(
-//   '@users/add-user',
-//   async (obj: User, { getState }) => {
-//     const users = getState();
-//     console.log(users);
-
-//     const user = await fetch(API, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(obj),
-//     });
-
-//     const data = await user.json();
-
-//     return data;
-//   }
-// );
-
-// export const getOneUser = createAsyncThunk(
-//   '@users/get-one-user',
-//   async (id: string) => {
-//     const user = ky(`${API}/${id}`).json();
-
-//     return user;
-//   }
-// );

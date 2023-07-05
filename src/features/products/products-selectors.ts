@@ -1,5 +1,5 @@
 import { RootState } from '../../store';
-import { CartProduct } from '../cart/carts-slice';
+import { CartProduct } from '../cart/types';
 
 export const selectAllProducts = (state: RootState) => state.products;
 export const selectOneProduct = (state: RootState) => state.products.oneProduct;

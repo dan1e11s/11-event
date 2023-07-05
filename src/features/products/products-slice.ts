@@ -6,23 +6,7 @@ import {
   getOneProduct,
   getProducts,
 } from './products-actions';
-
-export interface Product {
-  id?: string;
-  title: string;
-  price: number;
-  category: string;
-  types: string;
-  description: string;
-  image: string;
-  images: string[];
-  rating: object;
-}
-
-interface IProduct {
-  products: Product[];
-  oneProduct: Product | null;
-}
+import { IProduct, Product } from './types';
 
 const initialState: IProduct = {
   products: [],

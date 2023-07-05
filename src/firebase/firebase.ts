@@ -4,9 +4,9 @@ import {
   signInWithEmailAndPassword,
   getAuth,
 } from 'firebase/auth';
-import { User } from '../features/users/users-slice';
 
 import { getFirestore } from '@firebase/firestore';
+import { User } from '../features/users/types';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,

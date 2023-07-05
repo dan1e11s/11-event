@@ -6,9 +6,9 @@ import { selectFilteredProducts } from '../../../features/products/products-sele
 import { getProducts } from '../../../features/products/products-actions';
 
 import ProductItem from '../ProductItem/ProductItem';
-import { Product } from '../../../features/products/products-slice';
 
 import styles from './index.module.scss';
+import { Product } from '../../../features/products/types';
 
 const FilteredProducts = () => {
   const { type, category } = useParams();

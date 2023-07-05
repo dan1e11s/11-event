@@ -1,4 +1,4 @@
-import { Product } from '../products/products-slice';
+import { Product } from '../products/types';
 
 export interface CartProduct {
   count: number;

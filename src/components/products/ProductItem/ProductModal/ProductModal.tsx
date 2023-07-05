@@ -1,14 +1,14 @@
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 import styles from './index.module.scss';
 import { useAppDispatch } from '../../../../store';
 import { setCartBar } from '../../../../features/configs/configs-slice';
-import { Product } from '../../../../features/products/products-slice';
 import { addToCart } from '../../../../features/cart/carts-slice';
+import { Product } from '../../../../features/products/types';
 
 const ProductModal: FC<{
   item: Product;
   open: boolean;
-  myRef: any;
+  myRef: RefObject<HTMLDivElement>;
 }> = ({ item, open, myRef }) => {
   const dispatch = useAppDispatch();
 

@@ -1,25 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { addUser, getUsers } from './users-actions';
-
-export interface User {
-  email: string;
-  password: string;
-  repeatPassword: string;
-  firstName: string;
-  lastName: string;
-  address: string;
-  address2: string;
-  city: string;
-  postcode: string;
-  province: string;
-  telephone: string;
-  id?: string;
-}
-
-interface IUsers {
-  users: User[];
-  currentUser: User | null;
-}
+import { IUsers, User } from './types';
 
 const initialState: IUsers = {
   users: [],

@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useAppDispatch } from '../../../store';
 
 import {
-  CartProduct,
   decrementCount,
   incrementCount,
   removeItem,
@@ -20,6 +19,7 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 
 import styles from './index.module.scss';
+import { CartProduct } from '../../../features/cart/types';
 
 const CartItem: FC<{ cartItem: CartProduct }> = ({ cartItem }) => {
   const dispatch = useAppDispatch();

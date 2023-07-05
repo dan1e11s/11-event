@@ -9,10 +9,11 @@ import * as Yup from 'yup';
 import { BiErrorCircle } from 'react-icons/bi';
 
 import styles from './index.module.scss';
-import { User, setCurrentUser } from '../../features/users/users-slice';
+import { setCurrentUser } from '../../features/users/users-slice';
 import { useAppDispatch } from '../../store';
 import { getUserByEmail } from '../../features/users/users-actions';
 import { startSession } from '../../firebase/storage/local';
+import { User } from '../../features/users/types';
 
 const LoginForm = () => {
   const navigate = useNavigate();
