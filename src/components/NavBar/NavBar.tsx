@@ -69,13 +69,19 @@ const NavBar = () => {
             </li>
             <li>HELP</li>
             <li
-              onClick={() => navigate('/cart')}
+              onClick={() => {
+                if (getSession().userName) {
+                  navigate('/cart');
+                } else {
+                  alert('Вы должны войти!');
+                }
+              }}
               style={{ display: isCartPage ? 'none' : 'block' }}
             >
               <span
                 className={cart.length <= 10 ? styles.number : styles.twoNumber}
               >
-                {cart.length}
+                {getSession().userName ? cart.length : 0}
               </span>
               <AiOutlineShoppingCart />
             </li>

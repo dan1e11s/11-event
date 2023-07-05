@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
 import { useNavigate } from 'react-router-dom';
+
 import {
-  getCodeNumber,
-  getCountry,
   getNameCountry,
   selectCountries,
 } from '../../features/countries/country-slice';
-import { useAppDispatch } from '../../store';
+import { setCurrentUser } from '../../features/users/users-slice';
+import { addUser } from '../../features/users/users-actions';
 
 //validations
 import { useFormik } from 'formik';
@@ -18,16 +19,19 @@ import { BiErrorCircle } from 'react-icons/bi';
 
 // firebase
 import { createUser } from '../../firebase/firebase';
-
-import { addUser } from '../../features/users/users-actions';
-import { setCurrentUser } from '../../features/users/users-slice';
+import { startSession } from '../../firebase/storage/local';
 
 import styles from './index.module.scss';
-import { startSession } from '../../firebase/storage/local';
+import {
+  getCodeNumber,
+  getCountry,
+} from '../../features/countries/country-actions';
+import { Country } from '../../features/countries/types';
 
 const RegisterForm = () => {
   const dispatch = useAppDispatch();
   const { countries, nameCountry, codeNumber } = useSelector(selectCountries);
+  console.log(countries);
 
   const navigate = useNavigate();
 
@@ -193,7 +197,7 @@ const RegisterForm = () => {
                 dispatch(getNameCountry(e.target.value));
               }}
             >
-              {countries.map((item: any) => (
+              {countries.map((item: Country) => (
                 <option key={item.name.common}>{item.name.common}</option>
               ))}
             </select>

@@ -1,15 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
-
-interface IConfig {
-  cartBar: boolean;
-  sideBar: boolean;
-  footer: boolean;
-  isHome: boolean;
-  isLogin: boolean;
-  isSearchPage: boolean;
-  isCartPage: boolean;
-}
+import { IConfig } from './types';
 
 const initialState: IConfig = {
   cartBar: false,

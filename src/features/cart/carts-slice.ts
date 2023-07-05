@@ -1,17 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Product } from '../products/products-slice';
-
-export interface CartProduct {
-  count: number;
-  item: Product;
-  size: string;
-  subPrice: number;
-}
-
-interface CartState {
-  cart: CartProduct[];
-  totalPrice: number;
-}
+import { CartState } from './types';
 
 const initialState: CartState = {
   cart: [],
